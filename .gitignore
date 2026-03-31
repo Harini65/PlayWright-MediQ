@@ -1,21 +1,20 @@
-# Maven output
-/target/
-/Maven Dependencies/
-/Screenshots/
-/test-output/
-/src/
+# Ignore everything
+*
 
-# Eclipse files
-.classpath
+# Allow only test code
+!src/
+!src/test/
+!src/test/java/
+
+# Allow files inside test/java
+!src/test/java/**
+
+# Ignore build & IDE files
+target/
+*.log
+*.png
+screenshots/
 .project
+.classpath
 .settings/
-
-# Logs
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-
-*.iml
-*.log
+.idea/
