@@ -1,20 +1,50 @@
-# Ignore everything
-*
-
-# Allow only test code
-!src/
-!src/test/
-!src/test/java/
-
-# Allow files inside test/java
-!src/test/java/**
-
-# Ignore build & IDE files
+# =========================
+# Maven / Build
+# =========================
 target/
+build/
+
+# =========================
+# Logs
+# =========================
 *.log
-*.png
+
+# =========================
+# Screenshots / Reports
+# =========================
 screenshots/
+reports/
+test-output/
+playwright-report/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE Files (Eclipse / IntelliJ)
+# =========================
 .project
 .classpath
 .settings/
 .idea/
+*.iml
+
+# =========================
+# Node (Playwright sometimes uses it)
+# =========================
+node_modules/
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+
+# =========================
+# Allow important files
+# =========================
+!pom.xml
+!testng.xml
+!src/
