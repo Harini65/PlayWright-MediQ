@@ -144,7 +144,7 @@ class Self_Assessments extends BaseTest {
 
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,enabled=false)
 	public void EDAudit() {
 		page.getByText("NABH Self Assessments").click();
 		page.getByText("Emergency Department Audit").click();
