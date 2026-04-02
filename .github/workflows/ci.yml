@@ -27,10 +27,17 @@ jobs:
       - name: Run TestNG tests
         run: mvn test
 
+      - name: Upload Maven Surefire Reports
+        if: always()   # upload even if tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-surefire-reports
+          path: target/surefire-reports
+
   frontend-tests:
     name: Run Playwright Tests
     runs-on: ubuntu-latest
-    needs: backend-tests   # ensures backend tests run first
+    needs: backend-tests   # run only after backend tests
 
     steps:
       - name: Checkout repository
@@ -50,5 +57,12 @@ jobs:
         working-directory: PlayWright-MediQ
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test --reporter=html
         working-directory: PlayWright-MediQ
+
+      - name: Upload Playwright HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: PlayWright-MediQ/playwright-report
